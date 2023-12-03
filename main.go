@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-mongodb-crud/configs"
+	"github.com/go-mongodb-crud/routes"
 )
 
 func init() {
@@ -12,11 +13,7 @@ func init() {
 func main() {
 	app := gin.Default()
 
-	app.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "hello",
-		})
-	})
+	routes.UserRoutes(app)
 
 	app.Run()
 }
