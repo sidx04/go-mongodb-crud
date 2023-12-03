@@ -33,11 +33,11 @@ var userCollection *mongo.Collection = configs.GetCollection(configs.DB, "users"
 var validate = validator.New()
 
 func CreateUser(c *gin.Context) {
+	var userModel models.User
+
 	// create context
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-
-	var userModel models.User
 
 	// bind to request body
 	if err := c.Bind(&userModel); err != nil {
