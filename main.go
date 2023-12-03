@@ -1,6 +1,13 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/go-mongodb-crud/configs"
+)
+
+func init() {
+	configs.ConnectDB()
+}
 
 func main() {
 	app := gin.Default()
